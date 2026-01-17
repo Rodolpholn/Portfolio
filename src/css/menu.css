@@ -1,0 +1,48 @@
+@import url("./color.css");
+
+.menu {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-primary);
+}
+.menu__item {
+  width: 100%;
+}
+.menu--mobile {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-dark);
+}
+.menu--mobile .menu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  gap: 0.625rem;
+}
+.menu__link.active .menu__icon,
+.menu__link.active .menu__text {
+  color: red;
+  font-weight: 600;
+}
+.menu__icon,
+.menu__text {
+  color: var(--color-dark);
+}
+.menu__icon {
+  font-size: 1.5rem;
+}
+.menu__text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .menu--mobile {
+    display: none;
+  }
+}
