@@ -1,0 +1,101 @@
+/* @import url("../base/variables.css"); */
+
+/* Removido o import daqui para seguir a estrutura profissional do index.css */
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Corrigido de 1rm para 1rem */
+  width: 100%;
+  background-color: var(--color-primary); /* Garante visibilidade */
+}
+
+.header__brand {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.header__brand .brand__logo {
+  max-width: 120px; /* Melhor usar max-width do que 60% dependendo do container */
+  height: auto;
+}
+
+/* MENU MOBILE (Estilo Tab Bar no Rodapé) */
+.nav__mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Corrigido de 100vw para 100% */
+  background-color: var(--color-primary);
+  border-top: 1px solid var(--color-dark);
+  z-index: 999; /* Garante que fique acima do conteúdo */
+}
+
+.menu--mobile {
+  display: flex;
+  justify-content: space-around; /* Distribui os ícones igualmente */
+  list-style: none;
+}
+
+.menu--mobile .menu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  gap: 0.3rem;
+}
+
+/* EFEITOS DE HOVER E ATIVO */
+.menu__link.active .menu__icon,
+.menu__link.active .menu__text,
+.menu__link:hover .menu__icon,
+.menu__link:hover .menu__text {
+  color: red; /* Dica: use uma variável aqui depois */
+  font-weight: 600;
+}
+
+.menu__icon {
+  font-size: 1.5rem;
+  color: var(--color-dark);
+}
+
+.menu__text {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+/* ESCONDER NAV DESKTOP NO MOBILE */
+.header__nav {
+  display: none;
+}
+
+/* MEDIA QUERY - TABLET E DESKTOP */
+@media (min-width: 768px) {
+  .nav__mobile {
+    display: none; /* Esconde a barra inferior no desktop */
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid var(--color-dark);
+    z-index: 1000;
+  }
+
+  .header__nav {
+    display: flex;
+    min-width: 30%;
+  }
+
+  .menu--principal {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+}

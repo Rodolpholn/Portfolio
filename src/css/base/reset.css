@@ -1,0 +1,58 @@
+/* 1. Use um modelo de caixa mais intuitivo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remova margens padrão de tudo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/* 3. Evite que imagens transbordem e melhore a renderização */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 4. Remova estilos padrão de listas (comum em menus) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 5. Remova sublinhados de links por padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 6. Melhore a tipografia e suavize as fontes */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* 7. Facilite o trabalho com formulários */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Garante que o cursor 'pointer' apareça em botões */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
