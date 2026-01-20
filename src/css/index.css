@@ -9,6 +9,6 @@
 @import "./components/button.css";
 /* 3. Estilos de elementos globais (como o body) */
 body {
-  background: var(--color-light);
+  background: var(--color-primary);
   font-family: "Ubuntu", sans-serif;
 }

@@ -1,0 +1,9 @@
+#toggleTheme {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-icon);
+  transition: ease-in-out 0.3s;
+}
+#toggleTheme:hover {
+  color: var(--color-hover);
+}

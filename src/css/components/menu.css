@@ -2,6 +2,10 @@
 
 /* Removido o import daqui para seguir a estrutura profissional do index.css */
 
+html[data-theme="dark"] .brand__logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 header {
   display: flex;
   flex-flow: row wrap;
@@ -30,7 +34,7 @@ header {
   left: 0;
   width: 100%; /* Corrigido de 100vw para 100% */
   background-color: var(--color-primary);
-  border-top: 1px solid var(--color-dark);
+  border-top: 1px solid var(--color-secondary);
   z-index: 999; /* Garante que fique acima do conteúdo */
 }
 
@@ -55,19 +59,20 @@ header {
 .menu__link.active .menu__text,
 .menu__link:hover .menu__icon,
 .menu__link:hover .menu__text {
-  color: red; /* Dica: use uma variável aqui depois */
+  color: var(--color-hover); /* Dica: use uma variável aqui depois */
   font-weight: 600;
 }
 
+/* Estilização do ícone do menu */
 .menu__icon {
   font-size: 1.5rem;
-  color: var(--color-dark);
+  color: var(--color-secondary);
 }
-
+/* Estilização do texto do menu */
 .menu__text {
   font-size: 0.7rem;
   text-transform: uppercase;
-  color: var(--color-dark);
+  color: var(--color-secondary);
 }
 
 /* ESCONDER NAV DESKTOP NO MOBILE */
@@ -84,7 +89,7 @@ header {
   .header {
     position: fixed;
     top: 0;
-    border-bottom: 1px solid var(--color-dark);
+    border-bottom: 1px solid var(--color-secondary);
     z-index: 1000;
   }
 
