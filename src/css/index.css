@@ -7,6 +7,8 @@
 /* 4. Componentes específicos */
 @import "./components/menu.css";
 @import "./components/button.css";
+@import "./components/main.css";
+@import "./components/footer.css";
 /* 3. Estilos de elementos globais (como o body) */
 body {
   background: var(--color-primary);

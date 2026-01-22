@@ -1,0 +1,142 @@
+main {
+  padding-top: 50px;
+  /* margin: 50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: "Ubuntu", sans-serif;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+.main__content1 {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.main__content2 {
+  width: 100%;
+}
+.main__content2 iframe {
+  width: 80%;
+  aspect-ratio: 16 / 9;
+  /* max-width: 560px;
+  height: 315px; */
+  padding: 30px;
+  border: none;
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 6.25rem 1rem 2rem 1rem;
+  background: var(--background-secondary);
+  margin-top: -5.5rem;
+}
+.skills__item {
+  pointer-events: get;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--secondary-border-color);
+  border-radius: 50rem;
+}
+.skills__item:hover {
+  border-color: var(--color-hover);
+}
+.skills__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.skills__logo {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 8rem 6rem 4rem 6rem;
+  }
+  .main__content1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 6.75rem 6rem 6.25rem 6rem;
+  }
+  .main__content2 {
+    width: 100%;
+  }
+  .main__content2 iframe {
+    width: 60%;
+    aspect-ratio: 16 / 9;
+    /* max-width: 560px;
+  height: 315px; */
+    padding: 30px;
+    border: none;
+    border-radius: 0.625rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+@media (min-width: 1200px) {
+  .skills {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10rem 6rem 4rem;
+  }
+  .skills__item {
+    width: 6rem;
+    height: 6rem;
+  }
+  .skills h2 {
+    font-size: 3.5rem;
+    width: 60%;
+  }
+  .skills__list {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .header {
+    padding: 1rem 15rem;
+  }
+  main {
+    padding: 12rem 15rem 2rem;
+  }
+  .skills {
+    padding: 10rem 15rem 4rem;
+  }
+}

@@ -7,3 +7,41 @@
 #toggleTheme:hover {
   color: var(--color-hover);
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  background: transparent;
+  border-radius: 3.125rem;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.05);
+  transition: ease-in-out 0.3s;
+}
+
+.btn span,
+.btn i {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+.btn--primary span {
+  color: var(--color-secondary);
+}
+.btn--primary {
+  border: 1px solid var(--color-secondary);
+}
+
+#social--icon {
+  color: var(--color-icon);
+  font-size: 2.5rem;
+}
+
+@media (min-width: 1200px) {
+  .main__content1 .btn {
+    width: auto;
+  }
+}
