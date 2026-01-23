@@ -1,37 +1,44 @@
 main {
-  padding-top: 50px;
-  /* margin: 50px; */
+  padding-top: 100px;
+  max-width: 100%;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  text-align: left;
 }
 
 h1,
 h2,
-h3,
-p {
+h3 {
   font-family: "Ubuntu", sans-serif;
   color: var(--color-secondary);
   text-transform: uppercase;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 2rem;
+  text-align: center;
 }
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--title-color);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  max-width: 900px;
 }
 p {
   font-size: 1.125rem;
   line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto;
+  max-width: 700px;
+  text-transform: none;
+  color: var(--color-secondary);
 }
 .main__content1 {
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  align-items: flex-start; /* Botões e links também à esquerda */
+  gap: 1rem;
 }
 .main__content2 {
   width: 100%;
@@ -48,53 +55,123 @@ p {
 }
 
 .skills {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.25rem;
-  padding: 6.25rem 1rem 2rem 1rem;
-  background: var(--background-secondary);
-  margin-top: -5.5rem;
+  gap: 3rem;
+  padding: 8rem 0;
+  background: transparent;
+}
+.skills h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--color-hover);
+  margin-top: 10px;
+  border-radius: 2px;
 }
 .skills__item {
-  pointer-events: get;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
-  width: 4.8rem;
-  height: 4.8rem;
-  aspect-ratio: 1/1;
-  border: 1px solid var(--secondary-border-color);
-  border-radius: 50rem;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05); /* Efeito translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px; /* Bordas levemente arredondadas (mais moderno que círculo total) */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
 }
 .skills__item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
   border-color: var(--color-hover);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .skills__list {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-.skills__logo {
-  width: 2.4rem;
-  height: 2.4rem;
-  object-fit: contain;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
 }
 
+.skills__logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(100%); /* Ícones cinzas para um visual "clean" */
+  transition: filter 0.3s ease;
+}
+.skills__item:hover .skills__logo {
+  filter: grayscale(0%); /* Ganham cor ao passar o mouse */
+}
+.skills__item::before {
+  content: attr(data-tech); /* Você pode adicionar data-tech="JS" no HTML */
+  position: absolute;
+  bottom: -30px;
+  font-size: 0.8rem;
+  color: var(--color-hover);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.skills__item:hover::before {
+  opacity: 1;
+}
+
+.card__title {
+  color: var(--color-hover);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card__description {
+  color: #cbd5e1; /* Um cinza azulado claro */
+  margin-bottom: 1rem;
+}
+.Card--desciption__section {
+  margin-bottom: 1rem;
+}
+.projects__card {
+  width: 100%;
+  max-width: 1100px; /* Evita que o card fique largo demais */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--secondary-border-color);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Garante que TUDO dentro do card comece na esquerda */
+  text-align: left;
+  gap: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.card__image {
+  flex: 1;
+  position: relative;
+  min-height: 250px;
+  overflow: hidden;
+  border-left: 1px solid var(--secondary-border-color);
+}
+
+/* Responsividade tablet a cima de 768px */
 @media (min-width: 768px) {
   main {
-    padding: 8rem 6rem 4rem 6rem;
+    padding: 1rem 1rem 4rem 1rem;
   }
   .main__content1 {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 6.75rem 6rem 6.25rem 6rem;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    gap: 1rem;
+    padding: 1rem 6rem 6.25rem 1rem;
   }
   .main__content2 {
     width: 100%;
@@ -109,12 +186,238 @@ p {
     border-radius: 0.625rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+  .skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Mantém a linha à esquerda */
+    gap: 3rem;
+    padding: 8rem 0;
+    background: transparent; /* Remove fundos pesados */
+  }
+  .skills__item {
+    width: 120px;
+    height: 120px;
+  }
+  .skills__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: left;
+    line-height: 1.1;
+    /* Ajuste este valor para forçar a quebra onde desejar */
+    max-width: 500px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+
+  .skills h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: right;
+    max-width: 600px;
+    line-height: 1.2;
+    position: relative;
+  }
+  .skills h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--color-hover);
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+  .main__content2 {
+    width: 100%;
+    max-width: 800px; /* Evita que o vídeo fique gigante em telas ultra-wide */
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start; /* Alinha o container à esquerda */
+    position: relative;
+  }
+  .main__content2 iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 1.25rem; /* Bordas mais arredondadas para combinar com as Skills */
+
+    /* Sombra elegante e um leve brilho roxo (ajuste para sua cor de destaque) */
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(147, 51, 234, 0.1);
+
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+  .main__content2 iframe:hover {
+    transform: scale(1.02);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(147, 51, 234, 0.2);
+  }
+  .main__content2::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    background: var(--color-hover); /* Sua cor principal */
+    filter: blur(80px); /* Cria um rastro de luz suave atrás do vídeo */
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+#projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.25rem;
+  padding: 1.5rem;
+}
+#projects h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.projects__card {
+  flex-direction: row; /* Alinha horizontalmente */
+  align-items: stretch;
+}
+
+.projects__card:hover {
+  border-color: var(--color-hover);
+  transform: translateY(-5px);
+}
+
+.projects__card ul:not(.skills__list) {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.projects__card ul:not(.skills__list) li {
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card__content {
+  flex: 1;
+  padding: 2.5rem;
+}
+.card__image {
+  flex: 1;
+  min-height: 100%;
+}
+
+.project__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta a imagem para preencher o espaço sem esticar */
+  transition: transform 0.5s ease;
+}
+.image__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(147, 51, 234, 0.7); /* Cor de destaque roxa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image__overlay i {
+  font-size: 3rem;
+  color: #ffffff;
+}
+.project__logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: grayscale(100%); /* Ícones cinzas para um visual "clean" */
+  transition: filter 0.3s ease;
+}
+.project__item:hover .project__logo {
+  filter: grayscale(0%); /* Ganham cor ao passar o mouse */
+}
+
+/* Adicionando um pequeno marcador nos itens da lista */
+.projects__card ul:not(.skills__list) li::before {
+  content: "→";
+  color: var(--color-hover);
+}
+.project__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.05); /* Efeito translúcido */
+  border: 1px solid var(--secondary-border-color);
+  border-radius: 16px; /* Bordas levemente arredondadas (mais moderno que círculo total) */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+}
+.project__item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-hover);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.card__title {
+  color: var(--color-hover);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card__description {
+  color: var(--color-secondary); /* Um cinza azulado claro */
+  margin-bottom: 1rem;
+}
+.projects__card {
+  flex-direction: row; /* Coloca imagem ao lado do texto */
+  align-items: stretch; /* Garante que os dois lados tenham a mesma altura */
+}
+.card__content {
+  flex: 1.2; /* Ocupa um pouco mais de espaço que a imagem */
+  padding: 2.5rem; /* O respiro interno fica apenas no texto agora */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card__image {
+  flex: 1; /* Ocupa o restante do card */
+  position: relative;
+  min-height: 100%; /* Garante que preencha a altura do card */
+}
+
+.project__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
+  display: block;
 }
 @media (min-width: 1200px) {
   .skills {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10rem 6rem 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Mantém a linha à esquerda */
+    gap: 3rem;
+    padding: 8rem 0;
+    background: transparent; /* Remove fundos pesados */
   }
   .skills__item {
     width: 6rem;
@@ -123,9 +426,97 @@ p {
   .skills h2 {
     font-size: 3.5rem;
     width: 60%;
+    align-items: flex-start;
   }
   .skills__list {
     gap: 1rem;
+  }
+  .skills__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: left;
+    line-height: 1.1;
+    /* Ajuste este valor para forçar a quebra onde desejar */
+    max-width: 500px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+
+  .skills h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: right;
+    max-width: 600px;
+    line-height: 1.2;
+    position: relative;
+  }
+  #projects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2.25rem;
+    padding: 1.5rem;
+  }
+  #projects h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  .projects__card {
+    flex-direction: row; /* Alinha horizontalmente */
+    align-items: stretch; /* Faz os dois lados terem a mesma altura */
+    min-height: 400px; /* Define uma altura mínima para o retângulo ficar bonito */
+    max-width: 100%;
+  }
+
+  .projects__card:hover {
+    border-color: var(--color-hover);
+    transform: translateY(-5px);
+  }
+
+  .projects__card:hover {
+    border-color: var(--color-hover);
+    transform: translateY(-5px);
+  }
+  .projects__card ul:not(.skills__list) {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .projects__card ul:not(.skills__list) li {
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Adicionando um pequeno marcador nos itens da lista */
+  .projects__card ul:not(.skills__list) li::before {
+    content: "→";
+    color: var(--color-hover);
+  }
+  .card__content {
+    flex: 1.2; /* Ocupa um pouco mais de espaço que a imagem */
+    padding: 2.5rem; /* O respiro interno fica apenas no texto agora */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card__image {
+    flex: 1; /* Ocupa o restante do card */
+    position: relative;
+    min-height: 100%; /* Garante que preencha a altura do card */
+  }
+  .project__cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
+    display: block;
   }
 }
 
@@ -136,7 +527,11 @@ p {
   main {
     padding: 12rem 15rem 2rem;
   }
-  .skills {
-    padding: 10rem 15rem 4rem;
-  }
+
+  /* .skills {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10rem 6rem 4rem;
+  } */
 }

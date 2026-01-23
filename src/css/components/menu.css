@@ -1,24 +1,30 @@
-/* @import url("../base/variables.css"); */
-
-/* Removido o import daqui para seguir a estrutura profissional do index.css */
-
+/* 1. Reset da Logo */
 html[data-theme="dark"] .brand__logo {
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* 2. O Header (Note que agora a chave FECHA na linha 23) */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  right: 0;
   background-color: var(--color-primary);
-  position: fixed; /* Importante para o cabeçalho ficar no topo */
-  top: 0;
+  border: 1px solid var(--color-secondary);
+  border-radius: 1rem;
   z-index: 1000;
-}
+} /* <--- A CHAVE FECHA AQUI! */
+
+/* 3. Elementos do Header */
 .header__nav {
-  flex: 1; /* Ocupa 1/3 do espaço */
+  flex: 1;
   display: flex;
   justify-content: flex-start;
 }
@@ -28,31 +34,51 @@ header {
   display: flex;
   justify-content: center;
 }
+
 .header__toogle {
-  flex: 1; /* Ocupa 1/3 do espaço */
+  flex: 1;
   display: flex;
   justify-content: flex-end;
 }
 
 .header__brand .brand__logo {
-  max-width: 100px; /* Melhor usar max-width do que 60% dependendo do container */
+  max-width: 100px;
   height: auto;
 }
 
-/* MENU MOBILE (Estilo Tab Bar no Rodapé) */
+/* 4. Menu Social (Fora de qualquer bloco para funcionar sempre) */
+.menu--social {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.menu--social .menu__link:hover {
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}
+
+/* 5. Menu Mobile */
 .nav__mobile {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%; /* Corrigido de 100vw para 100% */
+  width: 100%;
   background-color: var(--color-primary);
   border-top: 1px solid var(--color-secondary);
-  z-index: 999; /* Garante que fique acima do conteúdo */
+  z-index: 999;
+  display: flex;
 }
 
 .menu--mobile {
   display: flex;
-  justify-content: space-around; /* Distribui os ícones igualmente */
+  justify-content: space-around;
+  width: 100%;
   list-style: none;
 }
 
@@ -66,52 +92,27 @@ header {
   gap: 0.3rem;
 }
 
-/* EFEITOS DE HOVER E ATIVO */
-.menu__link.active .menu__icon,
-.menu__link.active .menu__text,
-.menu__link:hover .menu__icon,
-.menu__link:hover .menu__text {
-  color: var(--color-hover); /* Dica: use uma variável aqui depois */
-  font-weight: 600;
-}
-
-/* Estilização do ícone do menu */
 .menu__icon {
   font-size: 1.5rem;
   color: var(--color-secondary);
 }
-/* Estilização do texto do menu */
+
 .menu__text {
   font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--color-secondary);
 }
 
-.menu--social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+/* 6. Media Queries */
+@media (max-width: 767px) {
+  .header__nav {
+    display: none !important;
+  }
 }
 
-/* ESCONDER NAV DESKTOP NO MOBILE */
-
-/* MEDIA QUERY - TABLET E DESKTOP */
 @media (min-width: 768px) {
   .nav__mobile {
-    display: none; /* Esconde a barra inferior no desktop */
-  }
-
-  .header {
-    position: fixed;
-    top: 0;
-    border-bottom: 1px solid var(--color-secondary);
-    z-index: 1000;
-  }
-
-  .header__nav {
-    display: flex;
-    min-width: 30%;
+    display: none !important;
   }
 
   .menu--principal {
@@ -122,7 +123,7 @@ header {
 }
 
 @media (min-width: 1200px) {
-  .header {
+  header {
     width: 86%;
   }
 }

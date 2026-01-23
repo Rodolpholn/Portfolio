@@ -9,10 +9,11 @@
 }
 
 .btn {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  width: 100%;
+  gap: 0.75rem;
+  width: fit-content;
   background: transparent;
   border-radius: 3.125rem;
   padding: 0.875rem 1.5rem;
@@ -38,6 +39,18 @@
 #social--icon {
   color: var(--color-icon);
   font-size: 2.5rem;
+}
+.card__buttons {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Mais espaço entre eles */
+  margin-top: 1rem;
+}
+
+.btn--repository {
+  border: none;
+  cursor: pointer;
+  color: var(--color-secondary);
 }
 
 @media (min-width: 1200px) {
