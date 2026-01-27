@@ -18,22 +18,12 @@ export function initMenu() {
   if (toggleTheme) {
     toggleTheme.addEventListener("click", () => {
       const currentTheme = rootHtml.getAttribute("data-theme");
-      let newTheme;
-
-      if (currentTheme === "dark") {
-        newTheme = "light";
-      } else {
-        newTheme = "dark";
-      }
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
 
       rootHtml.setAttribute("data-theme", newTheme);
 
-      //  Salva a escolha do usuário no localStorage
+      // Opcional: Salvar preferência do usuário
       localStorage.setItem("theme", newTheme);
-
-      // Alterna os ícones do Bootstrap Icons
-      toggleTheme.classList.toggle("bi-sun");
-      toggleTheme.classList.toggle("bi-moon");
     });
   }
 

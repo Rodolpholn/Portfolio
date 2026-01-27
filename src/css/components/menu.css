@@ -35,12 +35,6 @@ header {
   justify-content: center;
 }
 
-.header__toogle {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .header__brand .brand__logo {
   max-width: 100px;
   height: auto;
@@ -113,6 +107,88 @@ header {
   color: var(--color-hover) !important;
   font-weight: 700 !important;
   transition: all 0.3s ease;
+}
+/* Container do Switch */
+/* Container do Switch */
+.theme-switch {
+  width: 62px;
+  height: 32px;
+  background-color: var(--color-secondary);
+  border-radius: 50px;
+  position: relative; /* Base para o posicionamento absoluto interno */
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: block; /* Remove o flex para evitar conflito de alinhamento */
+}
+#toggleTheme::before,
+#toggleTheme::after {
+  content: none !important;
+}
+
+/* Estilo comum para os ícones Sol e Lua */
+.theme-switch i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  z-index: 2; /* Garante que fiquem ACIMA da bolinha roxa */
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Posiciona o Sol na esquerda */
+.theme-switch .bi-sun-fill {
+  left: 8px;
+}
+
+/* Posiciona a Lua na direita */
+.theme-switch .bi-moon-fill {
+  right: 8px;
+}
+
+/* A bolinha roxa que desliza */
+.switch-handle {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: var(--color-hover); /* Sua cor roxa/vinho */
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1; /* Abaixo dos ícones */
+}
+
+/* Movimentação baseada no tema */
+html[data-theme="dark"] .switch-handle {
+  left: 31px; /* Cobre a Lua */
+}
+
+html[data-theme="light"] .switch-handle {
+  left: 3px; /* Cobre o Sol */
+}
+
+/* TEMA LIGHT (Sol Ativado) */
+html[data-theme="light"] .switch-handle {
+  left: 3px;
+}
+html[data-theme="light"] .bi-sun-fill {
+  color: #ffffff; /* Branco sobre o roxo */
+}
+html[data-theme="light"] .bi-moon-fill {
+  color: #666666; /* Cinza apagado no fundo */
+}
+
+/* TEMA DARK (Lua Ativada) */
+html[data-theme="dark"] .switch-handle {
+  left: 31px;
+}
+html[data-theme="dark"] .bi-moon-fill {
+  color: #ffffff; /* Branco sobre o roxo */
+}
+html[data-theme="dark"] .bi-sun-fill {
+  color: #666666; /* Cinza apagado no fundo */
 }
 
 /* 6. Media Queries */
