@@ -4,7 +4,7 @@
     <span>Portfolio Professional | Arthur Rocha</span>
 </h1>
 
-Este repositório contém o código-fonte do meu portfólio pessoal, desenvolvido com foco em performance, modularidade e design moderno. O projeto destaca minha transição para o front-end com Angular/TypeScript e minha base sólida em C#/.NET..
+Este repositório contém o código-fonte do meu portfólio pessoal, desenvolvido com foco em performance, modularidade e design moderno. O projeto destaca minhas habilidades em o front-end com trienando estrutura otimizada e grantido um projeto eficaz.
 
 ## 🏗️ Estrutura do Projeto
 
