@@ -3,16 +3,33 @@ export function initMenu() {
   const rootHtml = document.documentElement;
   const menuLinks = document.querySelectorAll(".menu__link");
 
+  //  Recupera o tema salvo ao carregar a página
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    rootHtml.setAttribute("data-theme", savedTheme);
+    // Ajusta o ícone para corresponder ao tema salvo
+    if (savedTheme === "light") {
+      toggleTheme.classList.remove("bi-sun");
+      toggleTheme.classList.add("bi-moon");
+    }
+  }
+
   // Lógica do Tema
   if (toggleTheme) {
     toggleTheme.addEventListener("click", () => {
       const currentTheme = rootHtml.getAttribute("data-theme");
+      let newTheme;
 
       if (currentTheme === "dark") {
-        rootHtml.setAttribute("data-theme", "light");
+        newTheme = "light";
       } else {
-        rootHtml.setAttribute("data-theme", "dark");
+        newTheme = "dark";
       }
+
+      rootHtml.setAttribute("data-theme", newTheme);
+
+      //  Salva a escolha do usuário no localStorage
+      localStorage.setItem("theme", newTheme);
 
       // Alterna os ícones do Bootstrap Icons
       toggleTheme.classList.toggle("bi-sun");
