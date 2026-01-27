@@ -12,16 +12,25 @@ A arquitetura foi pensada para ser escalável, utilizando módulos JavaScript pa
 
 Plaintext
 ├── index.html # Ponto de entrada principal com estrutura semântica
+
 ├── src/
+
 │ ├── css/ # Estilização modularizada
+
 │ │ ├── index.css # Importação global e variáveis (Dark/Light)
+
 │ │ ├── base/ # Reset e definições fundamentais
+
 │ │ └── components/ # Estilos específicos (button, menu, projects, etc.)
+
 │ ├── js/ # Lógica de negócio e interações
+
 │ │ ├── index.js # Arquivo de inicialização e importação de módulos
-│ │ └── modules/ # Módulos ES6 (menu.js, main.js)
+
 │ └── img/ # Ativos visuais (logos, projetos e habilidades)
+
 ├── favicon.png # Ícone do site
+
 └── readme.md # Documentação do projeto
 
 ## Objetivo
