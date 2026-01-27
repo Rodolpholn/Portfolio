@@ -3,7 +3,7 @@ html[data-theme="dark"] .brand__logo {
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* 2. O Header (Note que agora a chave FECHA na linha 23) */
+/* 2. O Header  */
 header {
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,7 @@ header {
   border: 1px solid var(--color-secondary);
   border-radius: 1rem;
   z-index: 1000;
-} /* <--- A CHAVE FECHA AQUI! */
+}
 
 /* 3. Elementos do Header */
 .header__nav {
@@ -44,9 +44,10 @@ header {
 .header__brand .brand__logo {
   max-width: 100px;
   height: auto;
+  cursor: pointer;
 }
 
-/* 4. Menu Social (Fora de qualquer bloco para funcionar sempre) */
+/* 4. Menu Social */
 .menu--social {
   display: flex !important;
   flex-direction: row !important;
@@ -56,6 +57,9 @@ header {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0;
+}
+.menu__link {
+  color: var(--color-secondary);
 }
 
 .menu--social .menu__link:hover {
@@ -103,6 +107,14 @@ header {
   color: var(--color-secondary);
 }
 
+/* Estilo para o Menu Desktop e Mobile */
+.menu__link.active .menu__text,
+.menu__link.active .menu__icon {
+  color: var(--color-hover) !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease;
+}
+
 /* 6. Media Queries */
 @media (max-width: 767px) {
   .header__nav {
@@ -119,6 +131,20 @@ header {
     display: flex;
     gap: 1.5rem;
     list-style: none;
+  }
+  .menu--principal .menu__link.active {
+    position: relative;
+  }
+
+  .menu--principal .menu__link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-hover);
+    border-radius: 2px;
   }
 }
 

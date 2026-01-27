@@ -1,0 +1,48 @@
+# --- IDEs e Editores ---
+.vscode/
+.idea/
+*.swp
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
+
+# --- Dependências (Node.js) ---
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# --- Build e Distribuição ---
+dist/
+build/
+out/
+.parcel-cache/
+.cache/
+
+# --- Configurações de Ambiente (Segurança) ---
+.env
+.env.local
+.env.*.local
+
+# --- Logs ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Específico para .NET (Se você integrar o Backend aqui) ---
+[on]bin/
+[on]obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Arquivos Temporários do Sistema ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
