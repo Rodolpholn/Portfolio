@@ -56,6 +56,6 @@ Navegação Fluida: Implementação de Smooth Scroll e estados ativos no menu de
 
 ## 🚀 Como Executar o Projeto
 
-Clone este repositório: git clone https://github.com/Rodolpholn/seu-repositorio.git
+Clone este repositório: git clone https://github.com/Rodolpholn/Portfolio
 
 Abra o arquivo index.html em seu navegador ou utilize a extensão Live Server no VS Code para uma melhor experiência.
